@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: ambit-secretguard-api
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: GITHUB_WEBHOOK_SECRET
+        value: ambit-secretguard-webhook-secret
+      - key: WEBHOOK_PUBLIC_URL
+        sync: false   # Fill in after deploy: https://<your-render-url>.onrender.com/webhook
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+    disk:
+      name: secretguard-db
+      mountPath: /opt/render/project/src/backend
+      sizeGB: 1

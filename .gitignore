@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# SQLite database — do NOT commit real data
+backend/secretguard.db
+
+# Local test repositories (have their own .git)
+test-repos/
+
+# Local dev/test scripts (contain demo credential patterns)
+setup_test_repos.py
+test_api.py
+
+# Node / React
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Keep .env.production (it only has placeholder URL, no real secrets)
+!frontend/.env.production
